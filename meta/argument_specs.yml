@@ -1,0 +1,49 @@
+---
+argument_specs:
+  main:
+    options:
+      manage_configurations:
+        type: bool
+        required: false
+        default: false
+      smarthost:
+        type: str
+        required: false
+      hosts:
+        type: dict
+        required: false
+        options:
+          hostname:
+            type: str
+            required: false
+            default: "{{ inventory_hostname }}"
+          local_domains:
+            type: list
+            required: false
+            elements: str
+            default:
+              - "{{ inventory_hostname_short }}"
+              - "{{ inventory_hostname }}"
+          relay_to_domains:
+            type: list
+            required: false
+            elements: str
+            default:
+          relay_from_hosts:
+            type: list
+            required: false
+            elements: str
+            default:
+              - localhost
+      spamd:
+        type: dict
+        required: false
+        options:
+          host:
+            type: str
+            required: false
+            default: 127.0.0.1
+          port:
+            type: int
+            required: false
+            default: 783

@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  role_name: exim
+  namespace: witine
+  author: Andrew Ying
+  company: Witine
+  license: BSD
+  description: Ansible role for running Exim Mail Transport Agent
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - jammy
+  galaxy_tags:
+    - grafana

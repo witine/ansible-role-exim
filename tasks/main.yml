@@ -1,0 +1,44 @@
+- name: "Setup Exim package"
+  ansible.builtin.apt:
+    name: exim4
+    state: present
+- name: "Configure 01-main.conf"
+  ansible.builtin.template:
+    src: 01-main.conf.j2
+    target: /etc/exim4/conf.d/01-main.conf
+  when: manage_configurations
+- name: "Configure 10-acl.conf"
+  ansible.builtin.template:
+    src: 10-acl.conf.j2
+    target: /etc/exim4/conf.d/10-acl.conf
+  when: manage_configurations
+- name: "Configure 20-routers.conf"
+  ansible.builtin.template:
+    src: 20-routers.conf.j2
+    target: /etc/exim4/conf.d/20-routers.conf
+  when: manage_configurations
+- name: "Configure 30-transport.conf"
+  ansible.builtin.template:
+    src: 30-transport.conf.j2
+    target: /etc/exim4/conf.d/30-transport.conf
+  when: manage_configurations
+- name: "Configure 40-retry.conf"
+  ansible.builtin.template:
+    src: 40-retry.conf.j2
+    target: /etc/exim4/conf.d/40-retry.conf
+  when: manage_configurations
+- name: "Configure 50-rewrite.conf"
+  ansible.builtin.template:
+    src: 50-rewrite.conf.j2
+    target: /etc/exim4/conf.d/50-rewrite.conf
+  when: manage_configurations
+- name: "Configure 60-authentication.conf"
+  ansible.builtin.template:
+    src: 60-authentication.conf.j2
+    target: /etc/exim4/conf.d/60-authentication.conf
+  when: manage_configurations
+- name: "Configure 70-local-scan.conf.j2"
+  ansible.builtin.template:
+    src: 70-local-scan.conf.j2
+    target: /etc/exim4/conf.d/70-local-scan.conf
+  when: manage_configurations
